@@ -34,9 +34,9 @@
         </developer>
     </developers>
     <scm>
-        <connection>scm:git:git://github.com/stackrox/jenkins-plugin.git</connection>
-        <developerConnection>scm:git:git@github.com:stackrox/jenkins-plugin.git</developerConnection>
-        <url>https://github.com/stackrox/jenkins-plugin</url>
+        <connection>scm:git:https://github.com/janisz/jenkins-plugin.git</connection>
+        <developerConnection>scm:git:https://github.com/janisz/jenkins-plugin.git</developerConnection>
+        <url>https://github.com/janisz/jenkins-plugin</url>
       <tag>HEAD</tag>
   </scm>
     <dependencies>
