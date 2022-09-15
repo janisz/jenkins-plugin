@@ -42,7 +42,7 @@ jobs:
         env:
           SETTINGS: ${{ secrets.M2_SETTINGS }}
         shell: bash
-        run: 'mkdir ${HOME}/.m2/ && echo "$SETTINGS" > ${HOME}/.m2/settings.xml'
+        run: 'echo "$SETTINGS" > ${HOME}/.m2/settings.xml'
       - name: Perform Release
         run: cd 'stackrox-container-image-scanner/' && ./mvnw -B release:perform
       - name: Debug log
