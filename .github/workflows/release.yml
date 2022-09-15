@@ -31,10 +31,12 @@ jobs:
           java-version: '8'
           cache: 'maven'
       - name: Prepare Release
-        run: cd 'stackrox-container-image-scanner/' && ./mvnw -B \
-          -DreleaseVersion=${{ inputs.tag }} \
-          -DdevelopmentVersion=${{ inputs.tag }}-SNAPSHOT \
-          -Dtag=${{ inputs.tag }} \
+        run: >
+          cd 'stackrox-container-image-scanner/' &&
+          ./mvnw -B
+          -DreleaseVersion=${{ inputs.tag }}
+          -DdevelopmentVersion=${{ inputs.tag }}-SNAPSHOT
+          -Dtag=${{ inputs.tag }}
           release:prepare
       - name: Write maven settings
         env:
@@ -42,7 +44,7 @@ jobs:
         shell: bash
         run: 'mkdir ${HOME/.m2/ && echo "$SETTINGS" > ${HOME}/.m2/settings.xml'
       - name: Perform Release
-        run: cd 'stackrox-container-image-scanner/' && ./mvnw release:perform
+        run: cd 'stackrox-container-image-scanner/' && ./mvnw -B release:perform
       - name: Debug log
         if: failure()
         run: cat ${GITSIGN_LOG}
