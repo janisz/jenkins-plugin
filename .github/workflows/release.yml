@@ -31,10 +31,11 @@ jobs:
           java-version: '8'
           cache: 'maven'
       - name: Prepare Release
-        run: cd 'stackrox-container-image-scanner/' && ./mvnw release:prepare \
+        run: cd 'stackrox-container-image-scanner/' && ./mvnw -B \
           -DreleaseVersion=${{ inputs.tag }} \
           -DdevelopmentVersion=${{ inputs.tag }}-SNAPSHOT \
-          -Dtag=${{ inputs.tag }}
+          -Dtag=${{ inputs.tag }} \
+          release:prepare
       - name: Write maven settings
         env:
           SETTINGS: ${{ secrets.M2_SETTINGS }}
